@@ -1,24 +1,16 @@
-import './App.css'
-import {useState} from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './home';
+import Services from './services';
 
-function App(){
-    const [list, setList] = useState string();
-    const []
-return(
-    <div className="App">
-        <input/>
-      <button>+</button>
-      <hr />
-      <ul>
-        <li>
-            <input type="checkbox" />
-            <span>texto</span>
-            <button>x</button>
-        </li>
-      </ul>
-    </div>
-)
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/servicios" element={<Services />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
-
+export default App;
