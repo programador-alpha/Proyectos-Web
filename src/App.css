@@ -17,11 +17,12 @@ body {
   background-color: #f0f0f0;
   color: var(--text-color);
   line-height: 1.6;
+  justify-content: center;
 }
 
 .hero-section {
-  width: 250%;
-  height: 98vh;
+  width: 300vh;
+  height: 100vh;
   background-image: url('./assets/motos.jpg'); 
   background-size: cover;
   background-position: center;
@@ -49,14 +50,14 @@ body {
 }
 
 .hero-content h1 {
-  font-size: 6.5em;
+  font-size: 3em;
   margin-bottom: 0.25em;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
   letter-spacing: 2.5px;
 }
 
 .hero-content p {
-  font-size: 4.00em;
+  font-size: 1.5em;
   margin-bottom: 1.5em;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
@@ -64,11 +65,11 @@ body {
 .cta-button {
   background-color: var(--primary-color);
   color: var(--white-color);
-  padding: 18px 36px;
+  padding: 5px 20px;
   text-decoration: none;
   border-radius: 50px;
   font-weight: bold;
-  font-size: 3.1em;
+  font-size: 0.9em;
   transition: all 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
@@ -153,10 +154,10 @@ body {
     gap: 40px;
     background-color: var(--white-color);
 }
-
+/*texto pequeño final*/
 .about-content {
     flex: 1;
-    text-align: left;
+    text-align: center;
 }
 
 .about-image {
@@ -220,7 +221,7 @@ body {
   }
 
   .services-section h2, .about-section h2, .gallery-section h2 {
-    font-size: 2em;
+    font-size: 4em;
     margin-bottom: 40px;
   }
 
