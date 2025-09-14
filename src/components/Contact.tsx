@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent } from "./ui/card";
 import { Phone, MapPin, MessageCircle, Navigation } from "lucide-react";
 
-//Creo que hacen falta instalar esas dependencias
-//Termine este compomente
+// Creo que hacen falta instalar esas dependencias
+// Termine este componente
 // los estilos se manejan con talwindcss, es mas rapido y sin tanto enredo con css
 export default function InfoPage() {
   return (
@@ -29,7 +29,7 @@ export default function InfoPage() {
               width="100%"
               height="350"
               style={{ border: 0 }}
-              allowFullScreen=""
+              allowFullScreen // Corregido: se eliminó el valor string ""
               loading="lazy"
               className="rounded-2xl"
             ></iframe>
