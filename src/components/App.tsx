@@ -1,6 +1,7 @@
 import Home from './home';
 import Services from '../components/services';
 import About from "../components/About";
+import InfoPage from './Contact';
 
 //Aqui se manejan las paginas las cuales se renderizan en una sola
 function App() {
@@ -11,7 +12,7 @@ function App() {
    <Home />
    <About />
   <Services />
-  
+  <InfoPage />
   </>
   );
 }
