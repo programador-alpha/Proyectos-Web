@@ -1,19 +1,16 @@
-import Home from './home';
-import Services from '../components/services';
-import About from "../components/About";
-import InfoPage from './Contact';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./home";
+import Services from "./services";
 
-//Aqui se manejan las paginas las cuales se renderizan en una sola
 function App() {
   return (
-    <>
-{//NOTA: YA SABE EDWAR, ORGANIZE LOS COMPONENTES SEGUN EL ORDEN
-}
-   <Home />
-   <About />
-  <Services />
-  <InfoPage />
-  </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />         {/* Página principal */}
+        <Route path="/servicios" element={<Services />} />  {/* Página de servicios */}
+      </Routes>
+    </Router>
   );
 }
 

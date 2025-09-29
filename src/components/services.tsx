@@ -1,54 +1,61 @@
-import React from "react";
-import "../App.css"; // estilos globales o específicos
+import React, { useState } from "react";
+import { FaHome, FaCog, FaWrench, FaTools, FaMotorcycle, FaGasPump, FaBolt, FaShieldAlt } from "react-icons/fa";
+import "../App.css";
+import servicios from "../assets/servicios.jpg";
 
 function Services() {
-  // Lista de servicios (más fácil de editar y agregar nuevos)
+  const [loading, setLoading] = useState(false);
+
   const services = [
-    {
-      icon: "fas fa-wrench",
-      title: "Mantenimiento Preventivo",
-      description:
-        "Cambio de aceite, filtros, revisión de frenos y ajustes generales para mantener tu moto en óptimas condiciones.",
-    },
-    {
-      icon: "fas fa-tools",
-      title: "Reparaciones Mecánicas",
-      description:
-        "Diagnóstico y reparación de motores, sistemas eléctricos, suspensiones y más.",
-    },
-    {
-      icon: "fas fa-motorcycle",
-      title: "Personalización",
-      description:
-        "Modificaciones estéticas y de rendimiento: pintura, luces LED, escapes, y accesorios únicos.",
-    },
-    {
-      icon: "fas fa-gas-pump",
-      title: "Repuestos y Accesorios",
-      description:
-        "Venta de piezas originales y genéricas, además de cascos, guantes y equipos de protección.",
-    },
-    {
-      icon: "fas fa-bolt",
-      title: "Eléctrico y Baterías",
-      description:
-        "Cambio y recarga de baterías, instalación de sistemas eléctricos y accesorios.",
-    },
-    {
-      icon: "fas fa-shield-alt",
-      title: "Inspección y Seguridad",
-      description:
-        "Chequeo completo de luces, frenos, llantas y sistemas de seguridad antes de viajes largos.",
-    },
+    { icon: <FaWrench size={200} color="gold" />, title: "Mantenimiento Preventivo", description: "Cambio de aceite, filtros, revisión de frenos y ajustes generales." },
+    { icon: <FaTools size={200} color="gold" />, title: "Reparaciones Mecánicas", description: "Diagnóstico y reparación de motores, sistemas eléctricos, suspensiones y más." },
+    { icon: <FaMotorcycle size={200} color="gold" />, title: "Personalización", description: "Modificaciones estéticas y de rendimiento." },
+    { icon: <FaGasPump size={200} color="gold" />, title: "Repuestos y Accesorios", description: "Venta de piezas originales y genéricas." },
+    { icon: <FaBolt size={200} color="gold" />, title: "Eléctrico y Baterías", description: "Cambio y recarga de baterías, instalación de sistemas eléctricos." },
+    { icon: <FaShieldAlt size={200} color="gold" />, title: "Inspección y Seguridad", description: "Chequeo completo de luces, frenos, llantas y sistemas de seguridad." },
   ];
 
+  const handleGoHome = () => {
+    setLoading(true);
+    setTimeout(() => {
+      window.location.href = "/";
+    }, 2000);
+  };
+
   return (
-    <section id="servicios" className="services-section">
+    <section
+      className="services-section"
+      style={{
+        minHeight: "96vh",
+        padding: "40px",
+        position: "relative",
+        backgroundImage: `url(${servicios})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      {/* Botón de inicio */}
+      <button className="home-button" onClick={handleGoHome}>
+        <FaHome /> Inicio
+      </button>
+
+      {/* Animación de carga */}
+      {loading && (
+        <div className="loader-overlay">
+          <FaCog className="gear-icon" />
+        </div>
+      )}
+
       <h2>Nuestros Servicios</h2>
+
       <div className="services-grid">
         {services.map((service, index) => (
           <div key={index} className="service-item">
-            <i className={service.icon}></i>
+            {/* Icono centrado */}
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: '20px' }}>
+              {service.icon}
+            </div>
             <h3>{service.title}</h3>
             <p>{service.description}</p>
           </div>

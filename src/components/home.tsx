@@ -1,53 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
 import backgroundImage from '../assets/motos.jpg'; 
 import '../App.css';
+import { useNavigate } from 'react-router-dom';
+import Loader from './Loader';
 
 function Home() {
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+
+  const handleServiciosClick = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      navigate('/servicios');
+    }, 2000); 
+  };
+
   return (
     <>
+      {loading && <Loader />}
       <div 
-        className="hero-section bg-cover bg-center h-screen flex items-center justify-center" 
+        className="hero-section"
         style={{ backgroundImage: `url(${backgroundImage})` }}
       >
-        <div className="hero-content text-center text-white">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Taller de Motos Flamencos
-          </h1>
-          <p className="text-lg md:text-xl mb-8">
-            Expertos en el Cuidado de tu Moto
-          </p>
+        <div className="hero-content">
+          <h1>Taller de Motos Flamencos</h1>
+          <p>Expertos en el Cuidado de tu Moto</p>
 
-          {/* Botones */}
-          <div className="flex justify-center gap-6">
+          <div className="cta-buttons">
             <a 
               href="#nosotros" 
-              className="px-6 py-3 rounded-lg bg-red-600 text-white font-semibold 
-              shadow-md transition duration-300 ease-in-out 
-              hover:bg-red-700 hover:scale-105 hover:shadow-xl"
+              className="cta-button"
               onClick={(e) => {
                 e.preventDefault();
-                document.querySelector("#nosotros")?.scrollIntoView({ 
-                  behavior: "smooth" 
-                })
-                }}
+                document.querySelector("#nosotros")?.scrollIntoView({ behavior: "smooth" });
+              }}
             >
               Sobre Nosotros
             </a>
             
-            <a 
-              href="#servicios" 
-              className="px-6 py-3 rounded-lg bg-red-600 text-white font-semibold 
-              shadow-md transition duration-300 ease-in-out 
-              hover:bg-red-700 hover:scale-105 hover:shadow-xl"
-              onClick={(e) => {
-                e.preventDefault();
-                document.querySelector("#servicios")?.scrollIntoView({ 
-                  behavior: "smooth" 
-                })
-                }}
+            <button 
+              className="cta-button"
+              onClick={handleServiciosClick}
             >
               Ver Servicios
-            </a>
+            </button>
           </div>
         </div>
       </div>
